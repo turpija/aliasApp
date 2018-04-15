@@ -12,6 +12,8 @@
 		425591742083B72C00421466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425591722083B72C00421466 /* Main.storyboard */; };
 		425591762083B72F00421466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425591752083B72F00421466 /* Assets.xcassets */; };
 		425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425591772083B72F00421466 /* LaunchScreen.storyboard */; };
+		425591812083B78F00421466 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591802083B78F00421466 /* Model.swift */; };
+		425591862083CCE500421466 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591852083CCE500421466 /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		425591752083B72F00421466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		425591782083B72F00421466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4255917A2083B72F00421466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		425591802083B78F00421466 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		425591852083CCE500421466 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		4255916D2083B72C00421466 /* aliasApp */ = {
 			isa = PBXGroup;
 			children = (
+				425591842083CCC900421466 /* model */,
 				4255916E2083B72C00421466 /* AppDelegate.swift */,
 				425591702083B72C00421466 /* ViewController.swift */,
 				425591722083B72C00421466 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				4255917A2083B72F00421466 /* Info.plist */,
 			);
 			path = aliasApp;
+			sourceTree = "<group>";
+		};
+		425591842083CCC900421466 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				425591802083B78F00421466 /* Model.swift */,
+				425591852083CCE500421466 /* Team.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425591862083CCE500421466 /* Team.swift in Sources */,
+				425591812083B78F00421466 /* Model.swift in Sources */,
 				425591712083B72C00421466 /* ViewController.swift in Sources */,
 				4255916F2083B72C00421466 /* AppDelegate.swift in Sources */,
 			);
@@ -283,6 +299,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6Z5HP7249;
 				INFOPLIST_FILE = aliasApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +318,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6Z5HP7249;
 				INFOPLIST_FILE = aliasApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
