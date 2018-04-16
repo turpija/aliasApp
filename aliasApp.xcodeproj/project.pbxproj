@@ -14,6 +14,7 @@
 		425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425591772083B72F00421466 /* LaunchScreen.storyboard */; };
 		425591812083B78F00421466 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591802083B78F00421466 /* Model.swift */; };
 		425591862083CCE500421466 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591852083CCE500421466 /* Team.swift */; };
+		4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255918A2083DA1700421466 /* PocetniScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4255917A2083B72F00421466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425591802083B78F00421466 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		425591852083CCE500421466 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		4255918A2083DA1700421466 /* PocetniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocetniScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				425591842083CCC900421466 /* model */,
+				425591872083D37900421466 /* controller */,
+				4255918C2083DDC800421466 /* view */,
 				4255916E2083B72C00421466 /* AppDelegate.swift */,
-				425591702083B72C00421466 /* ViewController.swift */,
-				425591722083B72C00421466 /* Main.storyboard */,
 				425591752083B72F00421466 /* Assets.xcassets */,
 				425591772083B72F00421466 /* LaunchScreen.storyboard */,
 				4255917A2083B72F00421466 /* Info.plist */,
@@ -76,6 +78,23 @@
 				425591852083CCE500421466 /* Team.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		425591872083D37900421466 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				425591702083B72C00421466 /* ViewController.swift */,
+				4255918A2083DA1700421466 /* PocetniScreen.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4255918C2083DDC800421466 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				425591722083B72C00421466 /* Main.storyboard */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +170,7 @@
 			files = (
 				425591862083CCE500421466 /* Team.swift in Sources */,
 				425591812083B78F00421466 /* Model.swift in Sources */,
+				4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */,
 				425591712083B72C00421466 /* ViewController.swift in Sources */,
 				4255916F2083B72C00421466 /* AppDelegate.swift in Sources */,
 			);
