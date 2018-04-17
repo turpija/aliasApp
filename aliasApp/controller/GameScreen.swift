@@ -8,25 +8,40 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameScreen: UIViewController {
 
     @IBOutlet weak var vrijeme: UILabel! // za prikaz timera odbrojavanja
     @IBOutlet weak var pojam: UILabel!  // za prikaz pojma koji se pogađa
     @IBOutlet weak var bodovi: UILabel!  // za prikaz bodova
     
+    
     var vrijemeIgre = 20
     var timer = Timer()
+    
 
     
-    let pojmovi:Array = ["auto","kuća","laptop","marljiv","tupav"]
+     let pojmovi:Array = ["auto","kuća","laptop","marljiv","tupav"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        nextTurnScreen()
+        
+    }
+    
+    private func nextTurnScreen() {
+        let prozor = UINib(nibName: "NextTurn", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! NextTurn
+        view.addSubview(prozor)
+        
+    }
+    
+    
+    private func pokreniIgru () {
         startTimer()
         vrijeme.text = "start"
         bodovi.text = "bodovi: 0"
+        
     }
     
     
@@ -46,7 +61,7 @@ class ViewController: UIViewController {
     
     //timer
     func startTimer () {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameScreen.updateTimer)), userInfo: nil, repeats: true)
         }
     
     @objc func updateTimer () {

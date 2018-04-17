@@ -8,21 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4255916F2083B72C00421466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255916E2083B72C00421466 /* AppDelegate.swift */; };
-		425591712083B72C00421466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591702083B72C00421466 /* ViewController.swift */; };
+		425591712083B72C00421466 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591702083B72C00421466 /* GameScreen.swift */; };
 		425591742083B72C00421466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425591722083B72C00421466 /* Main.storyboard */; };
 		425591762083B72F00421466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425591752083B72F00421466 /* Assets.xcassets */; };
 		425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425591772083B72F00421466 /* LaunchScreen.storyboard */; };
 		425591812083B78F00421466 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591802083B78F00421466 /* Model.swift */; };
 		425591862083CCE500421466 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591852083CCE500421466 /* Team.swift */; };
 		4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255918A2083DA1700421466 /* PocetniScreen.swift */; };
+		425F0FF4208641BC00B29463 /* NextTurn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F0FF3208641BC00B29463 /* NextTurn.xib */; };
+		425F0FF62086421900B29463 /* NextTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F0FF52086421900B29463 /* NextTurn.swift */; };
 		425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F796F2085DF1700EFDA6E /* TeamStack.xib */; };
 		425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F79712085DFAB00EFDA6E /* TeamStack.swift */; };
+		7179DC5E0C9E924DE6639D45 /* Pods_aliasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B077F9E823DCFAB92F6E414 /* Pods-aliasApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aliasApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-aliasApp/Pods-aliasApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4255916B2083B72C00421466 /* aliasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aliasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4255916E2083B72C00421466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		425591702083B72C00421466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		425591702083B72C00421466 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		425591732083B72C00421466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		425591752083B72F00421466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		425591782083B72F00421466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,8 +34,12 @@
 		425591802083B78F00421466 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		425591852083CCE500421466 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4255918A2083DA1700421466 /* PocetniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocetniScreen.swift; sourceTree = "<group>"; };
+		425F0FF3208641BC00B29463 /* NextTurn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NextTurn.xib; sourceTree = "<group>"; };
+		425F0FF52086421900B29463 /* NextTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTurn.swift; sourceTree = "<group>"; };
 		425F796F2085DF1700EFDA6E /* TeamStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamStack.xib; sourceTree = "<group>"; };
 		425F79712085DFAB00EFDA6E /* TeamStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStack.swift; sourceTree = "<group>"; };
+		45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aliasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3848EF1E6BDFA774DA06F4 /* Pods-aliasApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aliasApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-aliasApp/Pods-aliasApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7179DC5E0C9E924DE6639D45 /* Pods_aliasApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6D76D1DDF51B825ED6872F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B077F9E823DCFAB92F6E414 /* Pods-aliasApp.debug.xcconfig */,
+				6A3848EF1E6BDFA774DA06F4 /* Pods-aliasApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		425591622083B72C00421466 = {
 			isa = PBXGroup;
 			children = (
 				4255916D2083B72C00421466 /* aliasApp */,
 				4255916C2083B72C00421466 /* Products */,
+				2B6D76D1DDF51B825ED6872F /* Pods */,
+				7AFE54B4428ED282FD324AFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,8 +107,8 @@
 		425591872083D37900421466 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				425591702083B72C00421466 /* ViewController.swift */,
 				4255918A2083DA1700421466 /* PocetniScreen.swift */,
+				425591702083B72C00421466 /* GameScreen.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -97,10 +117,36 @@
 			isa = PBXGroup;
 			children = (
 				425591722083B72C00421466 /* Main.storyboard */,
+				425F0FF82086423900B29463 /* TeamStack */,
+				425F0FF72086422E00B29463 /* NextTurn */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		425F0FF72086422E00B29463 /* NextTurn */ = {
+			isa = PBXGroup;
+			children = (
+				425F0FF3208641BC00B29463 /* NextTurn.xib */,
+				425F0FF52086421900B29463 /* NextTurn.swift */,
+			);
+			path = NextTurn;
+			sourceTree = "<group>";
+		};
+		425F0FF82086423900B29463 /* TeamStack */ = {
+			isa = PBXGroup;
+			children = (
 				425F796F2085DF1700EFDA6E /* TeamStack.xib */,
 				425F79712085DFAB00EFDA6E /* TeamStack.swift */,
 			);
-			path = view;
+			path = TeamStack;
+			sourceTree = "<group>";
+		};
+		7AFE54B4428ED282FD324AFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4255917D2083B72F00421466 /* Build configuration list for PBXNativeTarget "aliasApp" */;
 			buildPhases = (
+				34CEFDD85BB9317C0050CC7D /* [CP] Check Pods Manifest.lock */,
 				425591672083B72C00421466 /* Sources */,
 				425591682083B72C00421466 /* Frameworks */,
 				425591692083B72C00421466 /* Resources */,
+				DFE07DAD3D82E9409AEC58AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */,
+				425F0FF4208641BC00B29463 /* NextTurn.xib in Resources */,
 				425591762083B72F00421466 /* Assets.xcassets in Resources */,
 				425591742083B72C00421466 /* Main.storyboard in Resources */,
 				425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */,
@@ -169,6 +218,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34CEFDD85BB9317C0050CC7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aliasApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFE07DAD3D82E9409AEC58AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-aliasApp/Pods-aliasApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-aliasApp/Pods-aliasApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		425591672083B72C00421466 /* Sources */ = {
@@ -178,7 +268,8 @@
 				425591862083CCE500421466 /* Team.swift in Sources */,
 				425591812083B78F00421466 /* Model.swift in Sources */,
 				4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */,
-				425591712083B72C00421466 /* ViewController.swift in Sources */,
+				425591712083B72C00421466 /* GameScreen.swift in Sources */,
+				425F0FF62086421900B29463 /* NextTurn.swift in Sources */,
 				4255916F2083B72C00421466 /* AppDelegate.swift in Sources */,
 				425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */,
 			);
@@ -322,6 +413,7 @@
 		};
 		4255917E2083B72F00421466 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B077F9E823DCFAB92F6E414 /* Pods-aliasApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +433,7 @@
 		};
 		4255917F2083B72F00421466 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A3848EF1E6BDFA774DA06F4 /* Pods-aliasApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

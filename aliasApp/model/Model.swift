@@ -13,7 +13,8 @@ class Model {
     let pojmovi1:Dictionary = ["riba":0,
                                "auto":0,
                                "laptop":0]
-
+    
+    
     init() {
         
     }

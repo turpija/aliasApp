@@ -19,8 +19,10 @@ class PocetniScreen: UIViewController {
         super.viewDidLoad()
         
         configureTeamTable()
-    
     }
+    
+
+    
     
     
     @IBAction func dodajTim(_ sender: UIButton) {
@@ -82,6 +84,10 @@ class PocetniScreen: UIViewController {
     
     
     @IBAction func start(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "gameSeque", sender: self)
+ //       self.present(GameScreen(),animated: true, completion: nil)
+        
     }
 
   
