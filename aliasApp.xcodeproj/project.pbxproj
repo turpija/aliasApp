@@ -15,6 +15,8 @@
 		425591812083B78F00421466 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591802083B78F00421466 /* Model.swift */; };
 		425591862083CCE500421466 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425591852083CCE500421466 /* Team.swift */; };
 		4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255918A2083DA1700421466 /* PocetniScreen.swift */; };
+		425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F796F2085DF1700EFDA6E /* TeamStack.xib */; };
+		425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F79712085DFAB00EFDA6E /* TeamStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		425591802083B78F00421466 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		425591852083CCE500421466 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4255918A2083DA1700421466 /* PocetniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocetniScreen.swift; sourceTree = "<group>"; };
+		425F796F2085DF1700EFDA6E /* TeamStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamStack.xib; sourceTree = "<group>"; };
+		425F79712085DFAB00EFDA6E /* TeamStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				425591722083B72C00421466 /* Main.storyboard */,
+				425F796F2085DF1700EFDA6E /* TeamStack.xib */,
+				425F79712085DFAB00EFDA6E /* TeamStack.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -158,6 +164,7 @@
 				425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */,
 				425591762083B72F00421466 /* Assets.xcassets in Resources */,
 				425591742083B72C00421466 /* Main.storyboard in Resources */,
+				425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +180,7 @@
 				4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */,
 				425591712083B72C00421466 /* ViewController.swift in Sources */,
 				4255916F2083B72C00421466 /* AppDelegate.swift in Sources */,
+				425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

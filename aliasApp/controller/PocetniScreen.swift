@@ -10,13 +10,18 @@ import UIKit
 
 class PocetniScreen: UIViewController {
     
-    var timovi = [Team]()
-   
+    @IBOutlet weak var TeamTableView: UITableView!
 
+    var timovi = [Team]()
+    var bojeTimova : [UIColor] = [UIColor.red, UIColor.blue, UIColor.green, UIColor.magenta, UIColor.yellow]
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTeamTable()
+    
     }
+    
     
     @IBAction func dodajTim(_ sender: UIButton) {
         var naziv = UITextField()
@@ -46,10 +51,14 @@ class PocetniScreen: UIViewController {
             } else {
                 noviTim.igrac2 = "igrač 2"
             }
-            
+                        
             self.timovi.append(noviTim)
-            self.iscrtajNoviTim(tim: noviTim)
+            if self.timovi.count == 5 {
+                sender.isEnabled = false
+                sender.setTitle("puno", for: .normal)
+            }
             
+            self.updateTeamTable()
         }
         
         alert.addTextField { (alertTextField) in
@@ -75,26 +84,60 @@ class PocetniScreen: UIViewController {
     @IBAction func start(_ sender: UIButton) {
     }
 
+  
     
-    func iscrtajNoviTim (tim: Team) {
-        print(timovi[0])
-        
-        let naziv = UILabel()
-        naziv.frame = CGRect(x: 0, y: 20, width: 200, height: 20)
-        naziv.text = tim.naziv
-        self.view.addSubview(naziv)
-        
-        let igrac1 = UILabel()
-        igrac1.frame = CGRect(x: 100, y: 0, width: 200, height: 20)
-        igrac1.text = tim.igrac1
-        self.view.addSubview(igrac1)
-        
-        let igrac2 = UILabel()
-        igrac2.frame = CGRect(x: 100, y: 40, width: 200, height: 20)
-        igrac2.text = tim.igrac2
-        self.view.addSubview(igrac2)
-    }
 
+    
+}
+
+extension PocetniScreen: UITableViewDelegate, UITableViewDataSource {
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return timovi.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamStack", for: indexPath) as! TeamStack
+    
+        cell.timLabel.text = "TIM \(indexPath.row+1)"
+        cell.igrac1Label.text = timovi[indexPath.row].igrac1
+        cell.igrac2Label.text = timovi[indexPath.row].igrac2
+        cell.score.text = ""
+        cell.pozadinaTima.backgroundColor = bojeTimova[indexPath.row]
+    
+        return cell
+    }
+    
+    private func configureTeamTable () {
+        TeamTableView.delegate = self
+        TeamTableView.dataSource = self
+        
+        TeamTableView.register(UINib(nibName: "TeamStack", bundle: nil), forCellReuseIdentifier: "TeamStack")
+        
+        TeamTableView.rowHeight = 60
+//        TeamTableView.isScrollEnabled = false
+    }
+    
+    private func updateTeamTable () {
+        
+        TeamTableView.reloadData()
+//        setTableHeight()
+
+    }
+    
+    private func setTableHeight () {
+        var theHeight : CGFloat = 0.0
+        let kucica = self.TeamTableView.visibleCells
+        
+        for cell in kucica {
+            theHeight += cell.frame.height
+        }
+        
+        TeamTableView.frame = CGRect(x: TeamTableView.frame.origin.x, y: TeamTableView.frame.origin.y, width: TeamTableView.frame.width, height: CGFloat(theHeight))
+        
+    }
     
     
 }

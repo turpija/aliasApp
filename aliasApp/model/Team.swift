@@ -6,11 +6,12 @@
 //  Copyright © 2018 toorpia. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Team {
-    var naziv:String = ""
-    var igrac1:String = ""
-    var igrac2:String = ""
+    var naziv: String = ""
+    var igrac1: String = ""
+    var igrac2: String = ""
     var bodovi: Int = 0
+    var boja: UIColor = UIColor()
 }
