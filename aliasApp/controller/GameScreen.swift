@@ -15,6 +15,7 @@ class GameScreen: UIViewController {
     @IBOutlet weak var bodovi: UILabel!  // za prikaz bodova
     
     
+    
     var vrijemeIgre = 20
     var timer = Timer()
     

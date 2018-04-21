@@ -13,7 +13,7 @@ class NextTurn: UIView {
     @IBOutlet weak var timLabel: UILabel!
     @IBOutlet weak var citaLabel: UILabel!
     @IBOutlet weak var pogadjaLabel: UILabel!
-    
+   
     
     
 
@@ -21,6 +21,10 @@ class NextTurn: UIView {
         super.awakeFromNib()
     }
     
+    
+    @IBAction func pokreniBtn(_ sender: UIButton) {
+        self.removeFromSuperview()
+    }
     
     
 }

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Team {
-    var naziv: String = ""
-    var igrac1: String = ""
-    var igrac2: String = ""
-    var bodovi: Int = 0
-    var boja: UIColor = UIColor()
+class Team: Object {
+
+    @objc dynamic var naziv: String = ""
+    @objc dynamic var igrac1: String = ""
+    @objc dynamic var igrac2: String = ""
+    @objc dynamic var bodovi: Int = 0
+//    var boja: UIColor = UIColor()
 }

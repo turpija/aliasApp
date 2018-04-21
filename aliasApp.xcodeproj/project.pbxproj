@@ -17,6 +17,7 @@
 		4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255918A2083DA1700421466 /* PocetniScreen.swift */; };
 		425F0FF4208641BC00B29463 /* NextTurn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F0FF3208641BC00B29463 /* NextTurn.xib */; };
 		425F0FF62086421900B29463 /* NextTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F0FF52086421900B29463 /* NextTurn.swift */; };
+		425F0FFA208667A900B29463 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F0FF9208667A900B29463 /* Data.swift */; };
 		425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F796F2085DF1700EFDA6E /* TeamStack.xib */; };
 		425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F79712085DFAB00EFDA6E /* TeamStack.swift */; };
 		7179DC5E0C9E924DE6639D45 /* Pods_aliasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */; };
@@ -36,6 +37,7 @@
 		4255918A2083DA1700421466 /* PocetniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocetniScreen.swift; sourceTree = "<group>"; };
 		425F0FF3208641BC00B29463 /* NextTurn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NextTurn.xib; sourceTree = "<group>"; };
 		425F0FF52086421900B29463 /* NextTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTurn.swift; sourceTree = "<group>"; };
+		425F0FF9208667A900B29463 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		425F796F2085DF1700EFDA6E /* TeamStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamStack.xib; sourceTree = "<group>"; };
 		425F79712085DFAB00EFDA6E /* TeamStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStack.swift; sourceTree = "<group>"; };
 		45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aliasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,10 +86,10 @@
 		4255916D2083B72C00421466 /* aliasApp */ = {
 			isa = PBXGroup;
 			children = (
+				4255916E2083B72C00421466 /* AppDelegate.swift */,
 				425591842083CCC900421466 /* model */,
 				425591872083D37900421466 /* controller */,
 				4255918C2083DDC800421466 /* view */,
-				4255916E2083B72C00421466 /* AppDelegate.swift */,
 				425591752083B72F00421466 /* Assets.xcassets */,
 				425591772083B72F00421466 /* LaunchScreen.storyboard */,
 				4255917A2083B72F00421466 /* Info.plist */,
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				425591802083B78F00421466 /* Model.swift */,
+				425F0FF9208667A900B29463 /* Data.swift */,
 				425591852083CCE500421466 /* Team.swift */,
 			);
 			path = model;
@@ -272,6 +275,7 @@
 				425F0FF62086421900B29463 /* NextTurn.swift in Sources */,
 				4255916F2083B72C00421466 /* AppDelegate.swift in Sources */,
 				425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */,
+				425F0FFA208667A900B29463 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

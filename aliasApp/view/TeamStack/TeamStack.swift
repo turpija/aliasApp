@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TeamStack: UITableViewCell {
 
     @IBOutlet weak var timLabel: UILabel!
@@ -15,9 +16,12 @@ class TeamStack: UITableViewCell {
     @IBOutlet weak var igrac1Label: UILabel!
     @IBOutlet weak var pozadinaTima: UIView!
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var btn: UIButton!
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        score.isHidden = true
     }
     
 

@@ -7,22 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PocetniScreen: UIViewController {
     
     @IBOutlet weak var TeamTableView: UITableView!
 
-    var timovi = [Team]()
-    var bojeTimova : [UIColor] = [UIColor.red, UIColor.blue, UIColor.green, UIColor.magenta, UIColor.yellow]
+//    var timovi = [Team]()
+    var bojeTimova : [UIColor] = [UIColor.orange, UIColor.blue, UIColor.green, UIColor.magenta, UIColor.purple]
+  
+    var timovi: Results<Team>?
+    
+    let realm = try! Realm()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadRealm()
         configureTeamTable()
     }
-    
-
-    
     
     
     @IBAction func dodajTim(_ sender: UIButton) {
@@ -37,25 +39,20 @@ class PocetniScreen: UIViewController {
             
             if naziv.text != "" {
                 noviTim.naziv = naziv.text!
-            } else {
-                noviTim.naziv = "tim"
-            }
+            } else { noviTim.naziv = "tim" }
             
             if igrac1.text != "" {
                 noviTim.igrac1 = igrac1.text!
-            } else {
-                noviTim.igrac1 = "igrač 1"
-                
-            }
+            } else { noviTim.igrac1 = "igrač 1" }
             
             if igrac2.text != "" {
                 noviTim.igrac2 = igrac2.text!
-            } else {
-                noviTim.igrac2 = "igrač 2"
-            }
+            } else { noviTim.igrac2 = "igrač 2" }
                         
-            self.timovi.append(noviTim)
-            if self.timovi.count == 5 {
+//            self.timovi.append(noviTim)
+            self.saveRealm(tim: noviTim)
+            
+            if self.timovi?.count == 5 {
                 sender.isEnabled = false
                 sender.setTitle("puno", for: .normal)
             }
@@ -77,8 +74,6 @@ class PocetniScreen: UIViewController {
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        
-
     }
 
     
@@ -89,32 +84,61 @@ class PocetniScreen: UIViewController {
  //       self.present(GameScreen(),animated: true, completion: nil)
         
     }
-
-  
-    
-
     
 }
 
-extension PocetniScreen: UITableViewDelegate, UITableViewDataSource {
+//MARK: - TABLE EXTENSION
 
+extension PocetniScreen: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timovi.count
+        return timovi?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamStack", for: indexPath) as! TeamStack
-    
-        cell.timLabel.text = "TIM \(indexPath.row+1)"
-        cell.igrac1Label.text = timovi[indexPath.row].igrac1
-        cell.igrac2Label.text = timovi[indexPath.row].igrac2
-        cell.score.text = ""
-        cell.pozadinaTima.backgroundColor = bojeTimova[indexPath.row]
-    
+
+        if timovi != nil {
+            cell.timLabel.text = "TIM \(indexPath.row+1)"
+        } else {
+            cell.timLabel.text = "nema timova"
+        }
+
+        cell.igrac1Label.text = timovi?[indexPath.row].igrac1 ?? ""
+        cell.igrac2Label.text = timovi?[indexPath.row].igrac2 ?? ""
+        cell.score.text = "bodovi 0"
+//        cell.pozadinaTima.backgroundColor = UIColor.yellow
+        cell.contentView.isUserInteractionEnabled = false
+        
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        print("buton \(indexPath.row)")
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            print("Deleted\(indexPath)")
+//            self.timovi.remove(at: indexPath.row)
+//            self.TeamTableView.deleteRows(at: [indexPath], with: .automatic)
+/*            do {
+                try realm.write {
+                    self.realm.delete(self.timovi![indexPath.row])
+                }
+            } catch {
+                print("error deleting team \(error)")
+            }
+        
+*/
+            deleteTeam(at: indexPath)
+
+        }
+    }
+ 
     
     private func configureTeamTable () {
         TeamTableView.delegate = self
@@ -123,14 +147,12 @@ extension PocetniScreen: UITableViewDelegate, UITableViewDataSource {
         TeamTableView.register(UINib(nibName: "TeamStack", bundle: nil), forCellReuseIdentifier: "TeamStack")
         
         TeamTableView.rowHeight = 60
-//        TeamTableView.isScrollEnabled = false
+        TeamTableView.allowsSelection = false
+        TeamTableView.isScrollEnabled = false
     }
     
     private func updateTeamTable () {
-        
         TeamTableView.reloadData()
-//        setTableHeight()
-
     }
     
     private func setTableHeight () {
@@ -142,8 +164,49 @@ extension PocetniScreen: UITableViewDelegate, UITableViewDataSource {
         }
         
         TeamTableView.frame = CGRect(x: TeamTableView.frame.origin.x, y: TeamTableView.frame.origin.y, width: TeamTableView.frame.width, height: CGFloat(theHeight))
-        
     }
     
+}
+
+//MARK: - REALM, load & save
+
+extension PocetniScreen {
+    
+    func saveRealm (tim: Team) {
+        do {
+            try realm.write {
+                realm.add(tim)
+            }
+        } catch {
+            print ("error saving realm \(error)")
+        }
+    }
+    
+    func loadRealm() {
+        timovi = realm.objects(Team.self)
+    }
+    
+    func deleteTeam(at indeksPath: IndexPath) {
+       
+        print ("delete team at: \(indeksPath)")
+        
+        if let timDelete = self.timovi?[indeksPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(timDelete)
+                    updateTeamTable()
+                }
+            } catch {
+                print("error deleting team \(error)")
+            }
+        } else {
+            print ("nema timova -> no deletion")
+        }
+    }
     
 }
+
+
+    
+
+ 

@@ -29,7 +29,6 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="GcC-fI-Uvv" firstAttribute="centerY" secondItem="7OC-Uy-2WQ" secondAttribute="centerY" id="NMd-Gd-wAP"/>
                                 <constraint firstItem="GcC-fI-Uvv" firstAttribute="centerX" secondItem="7OC-Uy-2WQ" secondAttribute="centerX" id="np7-hu-NIR"/>
@@ -82,7 +81,7 @@
                 <outlet property="score" destination="Tde-kS-1wv" id="KRF-Xo-z6l"/>
                 <outlet property="timLabel" destination="GcC-fI-Uvv" id="xEd-nQ-SZZ"/>
             </connections>
-            <point key="canvasLocation" x="33" y="90.5"/>
+            <point key="canvasLocation" x="33" y="90"/>
         </view>
     </objects>
 </document>
