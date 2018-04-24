@@ -79,11 +79,12 @@ class PocetniScreen: UIViewController {
     
     
     @IBAction func start(_ sender: UIButton) {
-        
         performSegue(withIdentifier: "gameSeque", sender: self)
  //       self.present(GameScreen(),animated: true, completion: nil)
         
     }
+    
+
     
 }
 
