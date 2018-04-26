@@ -17,8 +17,9 @@ class GameScreen: UIViewController {
     
     
     
-    let vrijemeIgre = 9
+    var vrijemeIgre: Int = 9
     var vrijemeTimera: Int = 0
+    var brojBodovaZaPobjedu: Int = 10
     
     var timer = Timer()
     var timovi: Results<Team>?
@@ -30,13 +31,14 @@ class GameScreen: UIViewController {
     var nextTurnProzor = NextTurn()
     let realm = try! Realm()
     
-     let pojmovi:Array = ["auto","kuća","laptop","marljiv","tupav"]
+     let pojmovi:Array = ["0auto","1kuća","2laptop","3marljiv","4tupav"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadRealm()
+        resetirajBodoveTimovima()
         nextTurnScreen()
         
     }
@@ -70,7 +72,7 @@ class GameScreen: UIViewController {
     
     
 
-    //MARK: - Buttoni
+//MARK: - Buttoni
     
     //btn dalje - preskoči trenutni pojam, minus bod
     @IBAction func daljeBtn(_ sender: UIButton) {
@@ -83,7 +85,7 @@ class GameScreen: UIViewController {
         drugiPojam(dodajBodove: 1)
     }
     
-    //timer
+// TIMER
     func startTimer () {
         vrijemeTimera = vrijemeIgre
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameScreen.updateTimer)), userInfo: nil, repeats: true)
@@ -101,6 +103,8 @@ class GameScreen: UIViewController {
             vrijemeTimera -= 1
         }
     }
+    
+// SUČELJE
     
     private func updateView() {
         vrijeme.text = "start"
@@ -126,7 +130,6 @@ class GameScreen: UIViewController {
             currentTeamPlay += 1
         }
         print("trenutni timplay \(currentTeamPlay)")
-
         
         sljedeciTeamIgra()
         print("sljedeći")
@@ -143,6 +146,23 @@ class GameScreen: UIViewController {
         
         view.addSubview(nextTurnProzor)
         updateView()
+    }
+
+// resetiraj bodove svakog tima na 0
+    private func resetirajBodoveTimovima () {
+        if timovi != nil {
+            do {
+                try realm.write {
+                    timovi!.forEach({ (tim) in
+                        tim.bodovi = 0
+                    })
+                }
+            } catch {
+                print("error brisanje bodova, realm \(error)")
+            }
+        } else {
+            print ("nema timova za resetirati bodove")
+        }
     }
     
     

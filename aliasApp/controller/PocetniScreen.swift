@@ -19,12 +19,56 @@ class PocetniScreen: UIViewController {
     var timovi: Results<Team>?
     
     let realm = try! Realm()
+    
+    
+////////////////////// REALM SNIMANJE POJMOVA U BAZU
+    
+    var pojmovi1: Array = ["napušten","zbuniti","neprilika","poništiti","smanjiti","utišati","klaonica","trag","samostan","abeceda","trbuh","milijon","malo","noćenje","prije podne"]
+    var pojmovi2: Array = ["očaj","gležanj","abortus","talent","moć","opak","okolo","blizu","boravak"]
+    let pojmovi3: Array = ["osramotiti","prodaja","pustiti","trenje","mravojed","gore","nemar"]
+    
+    
+    private func popuniRealmBazu(pojmovi: Array<String>, lvl: Int) {
    
+        pojmovi.forEach {
+            print($0)
+        
+            let item = Pojmovi()
+            item.pojam = $0
+            item.seen = 0
+            item.lvl = lvl
+            
+            print(item, item.pojam, item.seen, item.lvl)
+            
+            do {
+                try realm.write {
+                    realm.add(item)
+                }
+            } catch {
+                print ("error saving realm \(error)")
+            }
+        }
+        
+        
+ 
+    }
+    
+    
+///////////////////////////////////
+    
+    
+    
+    
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadRealm()
         configureTeamTable()
+        popuniRealmBazu(pojmovi: pojmovi3, lvl: 3)
     }
+    
     
     
     @IBAction func dodajTim(_ sender: UIButton) {
@@ -206,6 +250,7 @@ extension PocetniScreen {
     }
     
 }
+
 
 
     

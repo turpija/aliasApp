@@ -9,11 +9,10 @@
 import Foundation
 import RealmSwift
 
-class Data: Object {
+class Pojmovi: Object {
     
     @objc dynamic var pojam: String = ""
+    @objc dynamic var lvl: Int = 0
     @objc dynamic var seen: Int = 0
-    
-    
-    
+
 }
