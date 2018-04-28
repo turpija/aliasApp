@@ -49,8 +49,31 @@ class PocetniScreen: UIViewController {
             }
         }
         
+
+    }
+
+    private func realmQuerry () {
+        let levelPrvi = realm.objects(Pojmovi.self).filter("lvl = 1 AND seen = 0")
         
- 
+        let sortiranoPoLevelima = realm.objects(Pojmovi.self).sorted(byKeyPath: "lvl")
+        
+        let seenDva = realm.objects(Pojmovi.self).filter("seen = 2")
+        print("/////////////////")
+        
+        let rand = Int(arc4random_uniform(UInt32(levelPrvi.count)))
+        
+        seenPojam(pojam: levelPrvi[rand])
+    }
+    
+    private func seenPojam(pojam: Pojmovi) {
+        do {
+            try realm.write {
+                pojam.seen = 1
+            }
+        } catch {
+            print ("error seen=1, \(error)")
+        }
+        
     }
     
     
@@ -66,7 +89,8 @@ class PocetniScreen: UIViewController {
         super.viewDidLoad()
         loadRealm()
         configureTeamTable()
-        popuniRealmBazu(pojmovi: pojmovi3, lvl: 3)
+//        popuniRealmBazu(pojmovi: pojmovi3, lvl: 3)
+//        realmQuerry()
     }
     
     

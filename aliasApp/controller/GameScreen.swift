@@ -17,9 +17,9 @@ class GameScreen: UIViewController {
     
     
     
-    var vrijemeIgre: Int = 9
+    var vrijemeIgre: Int = 9  // napraviti user input trajanja runde
     var vrijemeTimera: Int = 0
-    var brojBodovaZaPobjedu: Int = 10
+    var brojBodovaZaPobjedu: Int = 30  // napraviti user input max broj bodova za pobjedu
     
     var timer = Timer()
     var timovi: Results<Team>?
@@ -27,12 +27,15 @@ class GameScreen: UIViewController {
     
     var currentPojam: Int = 0
     var currentTeamBodovi:Int = 0
+    var level2Bodovi: Int = 10   // napraviti funkciju da automatski određuje level 2 u odnosu na max broj bodova
     
     var nextTurnProzor = NextTurn()
     let realm = try! Realm()
     
-     let pojmovi:Array = ["0auto","1kuća","2laptop","3marljiv","4tupav"]
-    
+    let pojmovi:Array = ["0auto","1kuća","2laptop","3marljiv","4tupav"]
+    var pojmovi1: Results<Pojmovi>?
+    var pojmovi2: Results<Pojmovi>?
+    var pojmovi3: Results<Pojmovi>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +47,13 @@ class GameScreen: UIViewController {
     }
     
     func loadRealm() {
-        print("učitaj timovi iz realma")
+//        print("učitaj timovi iz realma")
         timovi = realm.objects(Team.self)
+  
+        pojmovi1 = realm.objects(Pojmovi.self).filter("lvl = 1 AND seen = 0")
+        pojmovi2 = realm.objects(Pojmovi.self).filter("lvl = 2 AND seen = 0")
+        pojmovi3 = realm.objects(Pojmovi.self).filter("lvl = 3 AND seen = 0")
+        
     }
     
     private func nextTurnScreen() {
@@ -66,9 +74,86 @@ class GameScreen: UIViewController {
         currentPojam += 1
         currentTeamBodovi += dodajBodove
         
-        pojam.text = pojmovi[currentPojam]
+        pojam.text = ucitajPojam()
         bodovi.text = "bodovi: \(currentTeamBodovi)"
+        
+        //zapiši seen = 1 u realm
     }
+    
+    private func ucitajPojam () -> String {           // level 1 -> učitaj random pojam1
+        if currentTeamBodovi < level2Bodovi {
+            
+            if pojmovi1?.count == 0 {
+                print("pojmovi1.count = 0 ...")
+                
+                let pojmoviZaReset = realm.objects(Pojmovi.self).filter("lvl = 1")
+                resetSeen(pojmovi: pojmoviZaReset)
+            }
+ 
+//            print("broj pojmova u arrayu \(pojmovi1!.count)")
+            let randIndeks = randomIndex(zaArray: pojmovi1!)
+            let tekst = "1.\(pojmovi1![randIndeks].pojam)"
+            seenPojam(pojam: pojmovi1![randIndeks])
+            return tekst
+
+        } else {
+            
+            if pojmovi2?.count == 0 {
+                print("pojmovi2.count = 0 ...")
+                
+                let pojmoviZaReset = realm.objects(Pojmovi.self).filter("lvl = 2")
+                resetSeen(pojmovi: pojmoviZaReset)
+            }
+            
+            let randIndeks = randomIndex(zaArray: pojmovi2!)
+            let tekst = "2.\(pojmovi2![randIndeks].pojam)"
+            seenPojam(pojam: pojmovi2![randIndeks])
+            return tekst
+
+        }
+
+        
+        // level 2 -> učitaj random pojam2
+        // level 2, netočno 4x -> učitaj random pojam1
+        // 4x točno -> učitaj random pojam3, bonus
+        
+        return "blank"
+    }
+    
+    private func randomIndex (zaArray: Results<Pojmovi>) -> Int {
+        return Int(arc4random_uniform(UInt32(zaArray.count)))
+    }
+    
+// reset seen na 0
+    private func resetSeen(pojmovi: Results<Pojmovi>) {
+        
+        pojmovi.forEach {
+            
+            let item = $0
+            
+            do {
+                try realm.write {
+                    item.seen = 0
+                }
+            } catch {
+                print ("error saving realm \(error)")
+            }
+        }
+    }
+    
+// viđeno na 1
+    private func seenPojam(pojam: Pojmovi) {
+        print ("zapiši viđeno")
+        do {
+            try realm.write {
+                pojam.seen = 1
+            }
+        } catch {
+            print ("error seen=1, \(error)")
+        }
+        
+    }
+    
     
     
 
@@ -109,7 +194,7 @@ class GameScreen: UIViewController {
     private func updateView() {
         vrijeme.text = "start"
         bodovi.text = "bodovi: \(currentTeamBodovi)"
-        pojam.text = pojmovi[0]
+        pojam.text = ucitajPojam()
     }
     
     func zavrsiKrug () {
