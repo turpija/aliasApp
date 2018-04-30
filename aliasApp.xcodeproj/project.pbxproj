@@ -20,6 +20,8 @@
 		425F0FFA208667A900B29463 /* Pojmovi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F0FF9208667A900B29463 /* Pojmovi.swift */; };
 		425F79702085DF1700EFDA6E /* TeamStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F796F2085DF1700EFDA6E /* TeamStack.xib */; };
 		425F79722085DFAB00EFDA6E /* TeamStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F79712085DFAB00EFDA6E /* TeamStack.swift */; };
+		42F627392096FC0B0056243F /* Win.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F627382096FC0B0056243F /* Win.xib */; };
+		42F6273C2096FE560056243F /* Win.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6273B2096FE560056243F /* Win.swift */; };
 		7179DC5E0C9E924DE6639D45 /* Pods_aliasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		425F0FF9208667A900B29463 /* Pojmovi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pojmovi.swift; sourceTree = "<group>"; };
 		425F796F2085DF1700EFDA6E /* TeamStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamStack.xib; sourceTree = "<group>"; };
 		425F79712085DFAB00EFDA6E /* TeamStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStack.swift; sourceTree = "<group>"; };
+		42F627382096FC0B0056243F /* Win.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Win.xib; sourceTree = "<group>"; };
+		42F6273B2096FE560056243F /* Win.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Win.swift; sourceTree = "<group>"; };
 		45F04905A44D29B55DD0C9E2 /* Pods_aliasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aliasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3848EF1E6BDFA774DA06F4 /* Pods-aliasApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aliasApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-aliasApp/Pods-aliasApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				425591722083B72C00421466 /* Main.storyboard */,
+				42F6273A2096FC110056243F /* WinScreen */,
 				425F0FF82086423900B29463 /* TeamStack */,
 				425F0FF72086422E00B29463 /* NextTurn */,
 			);
@@ -142,6 +147,15 @@
 				425F79712085DFAB00EFDA6E /* TeamStack.swift */,
 			);
 			path = TeamStack;
+			sourceTree = "<group>";
+		};
+		42F6273A2096FC110056243F /* WinScreen */ = {
+			isa = PBXGroup;
+			children = (
+				42F627382096FC0B0056243F /* Win.xib */,
+				42F6273B2096FE560056243F /* Win.swift */,
+			);
+			path = WinScreen;
 			sourceTree = "<group>";
 		};
 		7AFE54B4428ED282FD324AFF /* Frameworks */ = {
@@ -212,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F627392096FC0B0056243F /* Win.xib in Resources */,
 				425591792083B72F00421466 /* LaunchScreen.storyboard in Resources */,
 				425F0FF4208641BC00B29463 /* NextTurn.xib in Resources */,
 				425591762083B72F00421466 /* Assets.xcassets in Resources */,
@@ -268,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F6273C2096FE560056243F /* Win.swift in Sources */,
 				425591862083CCE500421466 /* Team.swift in Sources */,
 				425591812083B78F00421466 /* Model.swift in Sources */,
 				4255918B2083DA1700421466 /* PocetniScreen.swift in Sources */,

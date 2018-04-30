@@ -24,12 +24,13 @@ class GameScreen: UIViewController {
     var timer = Timer()
     var timovi: Results<Team>?
     var currentTeamPlay: Int = 0
-    
+    var pogodakaUNizu:Int = 0
     var currentPojam: Int = 0
     var currentTeamBodovi:Int = 0
     var level2Bodovi: Int = 10   // napraviti funkciju da automatski određuje level 2 u odnosu na max broj bodova
     
     var nextTurnProzor = NextTurn()
+    var winProzor = Win()
     let realm = try! Realm()
     
     let pojmovi:Array = ["0auto","1kuća","2laptop","3marljiv","4tupav"]
@@ -71,20 +72,38 @@ class GameScreen: UIViewController {
     }
     
     private func drugiPojam (dodajBodove: Int) {
-        currentPojam += 1
         currentTeamBodovi += dodajBodove
         
-        pojam.text = ucitajPojam()
-        bodovi.text = "bodovi: \(currentTeamBodovi)"
+        if currentTeamBodovi == brojBodovaZaPobjedu {
+            print("POBJEDA MADAFAKA")
+            pobjeda()
+            
+        } else {
+            pojam.text = ucitajPojam()
+            bodovi.text = "bodovi: \(currentTeamBodovi)"
+        }
+    }
+    
+    
+    private func pobjeda() {
+// prikaži listu svih timova, istakni pobjednika
+        timer.invalidate()
+
+        winProzor = UINib(nibName: "Win", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! Win
         
-        //zapiši seen = 1 u realm
+        winProzor.delegate = self
+
+        winProzor.igrac1Label.text = timovi?[currentTeamPlay].igrac1
+        winProzor.igrac2Label.text = timovi?[currentTeamPlay].igrac2
+        
+        view.addSubview(winProzor)
     }
     
     private func ucitajPojam () -> String {           // level 1 -> učitaj random pojam1
         if currentTeamBodovi < level2Bodovi {
             
             if pojmovi1?.count == 0 {
-                print("pojmovi1.count = 0 ...")
+//                print("pojmovi1.count = 0 ...")
                 
                 let pojmoviZaReset = realm.objects(Pojmovi.self).filter("lvl = 1")
                 resetSeen(pojmovi: pojmoviZaReset)
@@ -99,7 +118,7 @@ class GameScreen: UIViewController {
         } else {
             
             if pojmovi2?.count == 0 {
-                print("pojmovi2.count = 0 ...")
+//                print("pojmovi2.count = 0 ...")
                 
                 let pojmoviZaReset = realm.objects(Pojmovi.self).filter("lvl = 2")
                 resetSeen(pojmovi: pojmoviZaReset)
@@ -111,9 +130,7 @@ class GameScreen: UIViewController {
             return tekst
 
         }
-
         
-        // level 2 -> učitaj random pojam2
         // level 2, netočno 4x -> učitaj random pojam1
         // 4x točno -> učitaj random pojam3, bonus
         
@@ -143,7 +160,7 @@ class GameScreen: UIViewController {
     
 // viđeno na 1
     private func seenPojam(pojam: Pojmovi) {
-        print ("zapiši viđeno")
+//        print ("zapiši viđeno")
         do {
             try realm.write {
                 pojam.seen = 1
@@ -263,4 +280,17 @@ extension GameScreen: NextTurnDelegate {
     }
 
 }
+
+//MARK: - WinDelegate
+
+extension GameScreen: WinDelegate {
+    func naPocetak() {
+// makni gamescreen, prikaži početni screen, slaganje timova i start
+        self.dismiss(animated: false, completion: nil)
+        
+    }
+    
+    
+}
+
 
